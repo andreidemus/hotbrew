@@ -19,7 +19,8 @@ import static java.lang.String.format;
 import static java.util.Arrays.asList;
 
 public class Runner {
-    public void run(String path, String[] args) throws IOException, InterruptedException {
+    public void run(String p, String[] args) throws IOException, InterruptedException {
+        final String path = new File(p).getAbsolutePath();
         final String home = System.getProperty("user.home");
         final String script = slurp(path);
         final String sha1 = sha1hex(script);
