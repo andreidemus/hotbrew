@@ -1,5 +1,6 @@
 package demus.hotbrew;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.net.URL;
@@ -38,6 +39,7 @@ public class RunnerTest {
             "            <version>2.22.1</version>\n" +
             "        </dependency>\n";
 
+    @Ignore
     @Test
     public void testRun() throws Exception {
         URL script = this.getClass().getResource("/TestScript.java");
