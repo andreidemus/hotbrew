@@ -1,5 +1,22 @@
-public class TestScript {
+/***
+ * dependencies = ["org.glassfish.jersey.core:jersey-client:2.22.1"]
+ */
+import java.util.stream.*;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import java.io.File;
+
+class TestScript {
     public static void main(String[] args) {
-        System.out.println("It works!");
+        // check args
+        Stream.of(args).forEach(System.out::println);
+
+        // check .
+        Stream.of(new File(".").list()).forEach(System.out::println);
+
+        // check external libs
+        Client client = ClientBuilder.newClient();
+        String response = client.target("https://api.github.com/zen").request().get(String.class);
+        System.out.println(response);
     }
 }
