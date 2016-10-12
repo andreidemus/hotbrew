@@ -33,7 +33,10 @@ public class Runner {
             resolveDependencies(script, workDir);
         }
         final String cpFilePath = workDirPath + separator + "cp.txt";
-        final String cp = "\"." + pathSeparator + workDirPath + pathSeparator + slurp(cpFilePath) + "\"";
+        final String cpFomMaven = new File(cpFilePath).exists()
+                ? slurp(cpFilePath)
+                : "";
+        final String cp = "\"." + pathSeparator + workDirPath + pathSeparator + cpFomMaven + "\"";
 
         final String scriptName = new File(path).getName().replace(".java", "");
         if (!new File(workDirPath + separator + scriptName + ".class").exists())
