@@ -3,7 +3,7 @@
 Requires **Maven**.
 
 ### How to use:
-1. Download [jar file](https://github.com/andreidemus/hotbrew/releases/download/v0.0.1/hotbrew.jar) or fetch source code and build with `mvn package`.
+1. Download [jar file](https://github.com/andreidemus/hotbrew/releases/download/v0.0.2/hotbrew-0.0.2.jar) or fetch source code and build with `mvn package`.
 2. Add alias to your ~/.bash_profile: `alias j="java -jar <path>/hotbrew.jar"`.
 3. Run `j Script.java`.
 4. Profit.
