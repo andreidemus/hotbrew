@@ -48,13 +48,9 @@ public class Runner {
     public int runCmd(String[] cmd, String[] env, File dir) throws IOException, InterruptedException {
         final Runtime runtime = Runtime.getRuntime();
         final Process pr = runtime.exec(cmd, env, dir);
-        final int exitCode = pr.waitFor();
-        if (exitCode == 0) {
-            pipe(pr.getInputStream(), System.out);
-        } else {
-            pipe(pr.getErrorStream(), System.err);
-        }
-        return exitCode;
+        pipe(pr.getInputStream(), System.out);
+        pipe(pr.getErrorStream(), System.err);
+        return pr.waitFor();
     }
 
     protected void resolveDependencies(String script, File workDir) {
